@@ -72,12 +72,15 @@
 }
 
 .scrollToTop {
+  opacity: 0;
   z-index: 11;
   position: fixed;
   bottom: 50px;
   right: 30px;
   width: 30px;
   height: 2px;
+  cursor: pointer;
+  transition: 0.5s;
 }
 .scrollToTop span.fa-chevron-up {
   color: black;

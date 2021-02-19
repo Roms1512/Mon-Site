@@ -31,3 +31,21 @@ console.log(navBarre);
 navBarre.addEventListener("scroll", (e) => {
   navBarre.style.position = "fixed";
 });
+
+// Scroll To Top
+
+let myButton = document.getElementById('myButton');
+console.log(myButton);
+
+// quand on scrolls de 20px on montre le boutton
+window.onscroll = ()=> {
+  scrollFunction()
+};
+
+function scrollFunction() {
+  if(document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    myButton.style.opacity = "1";
+  } else {
+    myButton.style.opacity = "0";
+  }
+}
