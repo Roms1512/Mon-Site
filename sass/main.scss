@@ -25,7 +25,7 @@ $fontPrincipal: sans-serif;
   }
 }
 
-/*-------------------- Corps de la Page --------------------*/
+/*-------------------- Corps de la Page  |  Les balises Géneriques --------------------*/
 
 /***** loader *****/
 
@@ -77,36 +77,56 @@ $fontPrincipal: sans-serif;
     animation-delay: 1s;
   }
 }
+
 .fondu-out {
   display: none;
   transition: display 0.4s ease-out;
 }
 
-// ------------------------------------------------------------------------------------------------
+.scrollToTop {
+  z-index: 11;
+  position: fixed;
+  bottom: 50px;
+  right: 30px;
+  width: 30px;
+  height: 2px;
+  span.fa-chevron-up {
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.571);
+  }
+}
+
+/***** Le body *****/
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-h2 {
-  padding-top: 30px;
-  font-size: xxx-large;
-}
-img {
-  object-fit: cover;
-}
-
-// Toute les span
-span {
-  color: $colorHover;
-}
-
 body {
   overflow-x: hidden;
 }
 
+/***** Toute les balises Types *****/
+h2 {
+  padding-top: 30px;
+  font-size: xxx-large;
+}
 
+img {
+  object-fit: cover;
+}
+
+span {
+  color: $colorHover;
+}
+
+/*-------------------- Corps de la Page  |  Acceuil --------------------*/
+
+/***** Header *****/
 
 header {
   width: 100%;
@@ -122,7 +142,7 @@ header {
       position: absolute;
       width: 100vw;
       height: 100vh;
-      &:nth-of-type(3){
+      &:nth-of-type(3) {
         top: 25px;
       }
     }
@@ -165,13 +185,13 @@ header {
         width: 30px;
         height: 2px;
         background: $colorText1;
-        &:nth-of-type(1){
+        &:nth-of-type(1) {
           top: 0;
         }
-        &:nth-of-type(2){
+        &:nth-of-type(2) {
           top: 10px;
         }
-        &:nth-of-type(3){
+        &:nth-of-type(3) {
           top: 20px;
         }
       }
@@ -196,11 +216,7 @@ header {
   }
 }
 
-.header-contact {
-  height: 10vh;
-  width: 100%;
-  background: white;
-}
+/***** Article  -  À Propos *****/
 
 article {
   z-index: 10;
@@ -287,6 +303,8 @@ article {
   }
 }
 
+/***** Section  -  Actualités et Projets *****/
+
 .actu {
   color: darken($color: $colorText1, $amount: 30);
   position: relative;
@@ -298,7 +316,7 @@ article {
     justify-content: center;
     width: 100%;
     height: 100%;
-    
+
     // Background Fixed
     .img-fixed {
       .bg-fixed {
@@ -309,7 +327,7 @@ article {
         height: 100%;
       }
     }
-    
+
     // Les gros Titres
     .titres {
       z-index: 10;
@@ -320,12 +338,12 @@ article {
         top: -50vh;
         text-align: center;
       }
-      
+
       .titre-all-projet {
         position: relative;
         text-align: center;
       }
-      
+
       .barre {
         z-index: 10;
         width: 70px;
@@ -337,14 +355,14 @@ article {
       .barre1 {
         margin-top: -45vh;
       }
-      
+
       .barre2 {
         margin-top: 5vh;
         margin-bottom: 10vh;
       }
     }
-    
-    // Actualités  -  Mes 3 Dernier Projets 
+
+    // Actualités  -  Mes 3 Dernier Projets
     .projet {
       height: 100%;
       z-index: 10;
@@ -368,7 +386,7 @@ article {
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-50%,-50%);
+          transform: translate(-50%, -50%);
         }
         &:hover {
           cursor: pointer;
@@ -390,7 +408,7 @@ article {
         }
       }
     }
-    
+
     // Projets
     .all-projets {
       padding-bottom: 10vh;
@@ -404,15 +422,15 @@ article {
         .all-pjt1 {
           width: 100%;
           margin-bottom: 20px;
-          &:nth-of-type(1){
+          &:nth-of-type(1) {
             background: rgba(255, 255, 255, 0.5);
             height: 75vh;
           }
-          &:nth-of-type(2){
+          &:nth-of-type(2) {
             background: rgba(255, 255, 255, 0.5);
             height: 50vh;
           }
-          &:nth-of-type(3){
+          &:nth-of-type(3) {
             background: rgba(255, 255, 255, 0.5);
             height: 50vh;
           }
@@ -445,12 +463,17 @@ article {
     width: 100%;
     height: 110vh;
     font-size: 30px;
-    font-family: 'Great Vibes', cursive;
+    font-family: "Great Vibes", cursive;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom, transparent,rgb(26, 29, 26));
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(26, 29, 26),
+      rgb(26, 29, 26)
+    );
     .photo {
       width: 70%;
       height: 100vh;
@@ -460,12 +483,14 @@ article {
   }
 }
 
+/***** Footer *****/
+
 footer {
   position: relative;
   padding-top: 100px;
   width: 100%;
   height: 73vh;
-  background:linear-gradient(rgb(26, 29, 26), black);
+  background: linear-gradient(rgb(26, 29, 26), black);
   .titre-reseaux {
     margin: auto;
     width: 230px;
@@ -511,8 +536,9 @@ footer {
             transition: all 0.4s;
           }
           &:hover {
-            i, p {
-              color: $colorText1;     
+            i,
+            p {
+              color: $colorText1;
             }
           }
         }
@@ -525,5 +551,70 @@ footer {
     z-index: 20;
     position: relative;
     color: darken($color: $colorText1, $amount: 30);
+  }
+}
+
+/*-------------------- Corps de la Page  |  Contact --------------------*/
+
+/***** Header Page Contact *****/
+
+header.header-contact {
+  position: relative;
+  height: 10vh;
+  width: 100%;
+  background: rgb(26,29,26);
+}
+
+/***** Section Page Contact *****/
+
+section.section-contact {
+  z-index: 100;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  color: $colorText1;
+  background: rgb(26, 29, 26);
+  h1 {
+    width: 100%;
+    font-family: sans-serif;
+    font-size: xxx-large;
+    letter-spacing: 10px;
+    height: 20px;
+    padding-left: 30px;
+    padding-top: 25vh;
+    margin-bottom: 120px;
+    color: darken($color: $colorText1, $amount: 30);
+  }
+  .contact {
+    width: 100%;
+    display: flex;
+    .part1, .part2 {
+      margin: auto;
+      padding: 50px;
+      width: 45%;
+      height: 70vh;
+      border: 6px solid darken($color: $colorText1, $amount: 30);
+    }
+    .part1 {
+      font-family: Arial, Helvetica, sans-serif;
+      h2 {
+        padding-top: 0;
+        width: 100%;
+        height: 70px;
+        font-size: xx-large;
+      }
+      p {
+        margin-bottom: 50px;
+        line-height: 25px;
+      }
+      .adresse-mail {
+        h3 {
+          margin-bottom: 15px;
+        }
+        p {
+          padding-left: 20px;
+        }
+      }
+    }
   }
 }
