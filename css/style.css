@@ -1,3 +1,5 @@
+/*-------------------- Variable --------------------*/
+/*-------------------- Keyframes --------------------*/
 @keyframes flash {
   0% {
     color: #fff900;
@@ -12,7 +14,8 @@
     text-shadow: 0 0 7px #fff900;
   }
 }
-/* loader */
+/*-------------------- Corps de la Page --------------------*/
+/***** loader *****/
 .loader {
   z-index: 100;
   position: absolute;
@@ -104,7 +107,7 @@ header .container {
 header .container img {
   z-index: 10;
   position: absolute;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 }
 header .container img:nth-of-type(3) {
@@ -112,14 +115,14 @@ header .container img:nth-of-type(3) {
 }
 header .nav-barre {
   z-index: 100;
-  margin: 30px auto;
+  padding: 30px auto;
   padding-right: 190px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 100%;
   height: 10vh;
-  position: fixed;
+  position: relative;
 }
 header .nav-barre ul {
   display: flex;
@@ -138,8 +141,52 @@ header .nav-barre ul li a {
 header .nav-barre ul li a:hover {
   color: #727272;
 }
-header .nav-barre img {
-  width: 33%;
+header .nav-barre .menu-nav {
+  display: none;
+  position: relative;
+  cursor: pointer;
+  width: 30px;
+  height: 20px;
+}
+header .nav-barre .menu-nav .barre-menu {
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: #f1f1f1;
+}
+header .nav-barre .menu-nav .barre-menu:nth-of-type(1) {
+  top: 0;
+}
+header .nav-barre .menu-nav .barre-menu:nth-of-type(2) {
+  top: 10px;
+}
+header .nav-barre .menu-nav .barre-menu:nth-of-type(3) {
+  top: 20px;
+}
+@media screen and (max-width: 1024px) {
+  header .nav-barre {
+    padding-right: 80px;
+  }
+  header .nav-barre ul li {
+    font-size: medium;
+  }
+}
+@media screen and (max-width: 768px) {
+  header .nav-barre {
+    padding-right: 8%;
+  }
+  header .nav-barre ul {
+    display: none;
+  }
+  header .nav-barre .menu-nav {
+    display: block;
+  }
+}
+
+.header-contact {
+  height: 10vh;
+  width: 100%;
+  background: white;
 }
 
 article {
@@ -175,10 +222,9 @@ article .titre {
   border-right: 1px dashed white;
 }
 article .titre h1 {
-  margin-top: 20px;
   font-size: 50px;
   letter-spacing: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 article .titre h1 span {
   color: #82594e;
@@ -186,9 +232,11 @@ article .titre h1 span {
 article .titre h3 {
   font-size: 15px;
   letter-spacing: 20px;
+  line-height: 30px;
   color: #f1f1f1;
 }
 article .description {
+  z-index: 10;
   position: relative;
   top: -5vh;
   width: 45%;
@@ -202,6 +250,29 @@ article .description p {
 }
 article .description p span {
   color: #f1f1f1;
+}
+@media screen and (max-width: 1024px) {
+  article {
+    flex-direction: column;
+    margin-bottom: 20vh;
+  }
+  article .titre {
+    margin: 2vh auto;
+    border-right: none;
+    height: 250px;
+  }
+  article .titre h1 {
+    margin-bottom: 2vh;
+  }
+  article .titre h3 {
+    width: 100%;
+  }
+  article .description {
+    margin-left: 20px;
+    height: 150px;
+    width: 90%;
+    border-left: 1px dashed white;
+  }
 }
 
 .actu {
@@ -236,7 +307,6 @@ article .description p span {
 }
 .actu .contenu-projet .titres .titre-all-projet {
   position: relative;
-  top: 5vh;
   text-align: center;
 }
 .actu .contenu-projet .titres .barre {
@@ -245,30 +315,33 @@ article .description p span {
   background: #f1f1f1;
   height: 2px;
   position: relative;
-  left: 46vw;
+  margin: auto;
 }
 .actu .contenu-projet .titres .barre1 {
-  top: -45vh;
+  margin-top: -45vh;
 }
 .actu .contenu-projet .titres .barre2 {
-  top: 10vh;
+  margin-top: 5vh;
   margin-bottom: 10vh;
 }
 .actu .contenu-projet .projet {
+  height: 100%;
   z-index: 10;
   margin: 0 5% 0;
-  position: absolute;
+  position: relative;
   top: -20vh;
   width: 90%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 .actu .contenu-projet .projet .pjt {
+  position: relative;
   background: rgba(255, 255, 255, 0.571);
   width: 30%;
   height: 15vw;
   transition: all 0.5s;
-  position: relative;
+  margin-bottom: 5%;
 }
 .actu .contenu-projet .projet .pjt .icones-plus {
   display: none;
@@ -285,8 +358,18 @@ article .description p span {
 .actu .contenu-projet .projet .pjt:hover .icones-plus {
   display: block;
 }
+@media screen and (max-width: 768px) {
+  .actu .contenu-projet .projet {
+    justify-content: flex-start;
+    width: 100%;
+    height: 100vh;
+  }
+  .actu .contenu-projet .projet .pjt {
+    width: 90%;
+    height: 30vh;
+  }
+}
 .actu .contenu-projet .all-projets {
-  margin-top: 10vh;
   padding-bottom: 10vh;
   position: relative;
   width: 100%;
@@ -356,7 +439,7 @@ footer {
   position: relative;
   padding-top: 100px;
   width: 100%;
-  height: 70vh;
+  height: 73vh;
   background: linear-gradient(#1a1d1a, black);
 }
 footer .titre-reseaux {
@@ -401,11 +484,11 @@ footer nav .reseaux li a i {
   border-radius: 50%;
   transition: all 0.4s;
 }
-footer nav .reseaux li a i:hover {
-  color: #121212;
-  background: #be9b92;
-}
 footer nav .reseaux li a p {
+  color: #82594e;
+  transition: all 0.4s;
+}
+footer nav .reseaux li a:hover i, footer nav .reseaux li a:hover p {
   color: #f1f1f1;
 }
 footer .copyright {

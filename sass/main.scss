@@ -1,3 +1,5 @@
+/*-------------------- Variable --------------------*/
+
 $colorText1: #f1f1f1;
 $colorText2: #121212;
 $colorBg1: #000;
@@ -5,6 +7,8 @@ $colorBg2: url(../images/BG.jpg);
 $colorHover: #82594e;
 
 $fontPrincipal: sans-serif;
+
+/*-------------------- Keyframes --------------------*/
 
 @keyframes flash {
   0% {
@@ -21,9 +25,9 @@ $fontPrincipal: sans-serif;
   }
 }
 
-// ------------------------------------------------------------------------------------------------
+/*-------------------- Corps de la Page --------------------*/
 
-/* loader */
+/***** loader *****/
 
 .loader {
   z-index: 100;
@@ -102,6 +106,8 @@ body {
   overflow-x: hidden;
 }
 
+
+
 header {
   width: 100%;
   height: 100vh;
@@ -114,7 +120,7 @@ header {
     img {
       z-index: 10;
       position: absolute;
-      width: 100%;
+      width: 100vw;
       height: 100vh;
       &:nth-of-type(3){
         top: 25px;
@@ -123,14 +129,14 @@ header {
   }
   .nav-barre {
     z-index: 100;
-    margin: 30px auto;
+    padding: 30px auto;
     padding-right: 190px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
     height: 10vh;
-    position: fixed;
+    position: relative;
     ul {
       display: flex;
       li {
@@ -148,10 +154,52 @@ header {
         }
       }
     }
-    img {
-      width: 33%;
+    .menu-nav {
+      display: none;
+      position: relative;
+      cursor: pointer;
+      width: 30px;
+      height: 20px;
+      .barre-menu {
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background: $colorText1;
+        &:nth-of-type(1){
+          top: 0;
+        }
+        &:nth-of-type(2){
+          top: 10px;
+        }
+        &:nth-of-type(3){
+          top: 20px;
+        }
+      }
+    }
+    @media screen and(max-width:1024px) {
+      padding-right: 80px;
+      ul {
+        li {
+          font-size: medium;
+        }
+      }
+    }
+    @media screen and(max-width:768px) {
+      padding-right: 8%;
+      ul {
+        display: none;
+      }
+      .menu-nav {
+        display: block;
+      }
     }
   }
+}
+
+.header-contact {
+  height: 10vh;
+  width: 100%;
+  background: white;
 }
 
 article {
@@ -185,10 +233,9 @@ article {
     color: darken($color: $colorText1, $amount: 50);
     border-right: 1px dashed white;
     h1 {
-      margin-top: 20px;
       font-size: 50px;
       letter-spacing: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       span {
         color: $colorHover;
       }
@@ -196,10 +243,12 @@ article {
     h3 {
       font-size: 15px;
       letter-spacing: 20px;
+      line-height: 30px;
       color: $colorText1;
     }
   }
   .description {
+    z-index: 10;
     position: relative;
     top: -5vh;
     width: 45%;
@@ -212,6 +261,28 @@ article {
       span {
         color: $colorText1;
       }
+    }
+  }
+
+  @media screen and(max-width:1024px) {
+    flex-direction: column;
+    margin-bottom: 20vh;
+    .titre {
+      margin: 2vh auto;
+      border-right: none;
+      height: 250px;
+      h1 {
+        margin-bottom: 2vh;
+      }
+      h3 {
+        width: 100%;
+      }
+    }
+    .description {
+      margin-left: 20px;
+      height: 150px;
+      width: 90%;
+      border-left: 1px dashed white;
     }
   }
 }
@@ -252,7 +323,6 @@ article {
       
       .titre-all-projet {
         position: relative;
-        top: 5vh;
         text-align: center;
       }
       
@@ -262,33 +332,36 @@ article {
         background: $colorText1;
         height: 2px;
         position: relative;
-        left: 46vw;
+        margin: auto;
       }
       .barre1 {
-        top: -45vh;
+        margin-top: -45vh;
       }
       
       .barre2 {
-        top: 10vh;
+        margin-top: 5vh;
         margin-bottom: 10vh;
       }
     }
     
     // Actualités  -  Mes 3 Dernier Projets 
     .projet {
+      height: 100%;
       z-index: 10;
       margin: 0 5% 0;
-      position: absolute;
+      position: relative;
       top: -20vh;
       width: 90%;
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       .pjt {
+        position: relative;
         background: rgba(255, 255, 255, 0.571);
         width: 30%;
         height: 15vw;
         transition: all 0.5s;
-        position: relative;
+        margin-bottom: 5%;
         .icones-plus {
           display: none;
           filter: invert(1);
@@ -306,10 +379,20 @@ article {
         }
       }
     }
+    @media screen and(max-width:768px) {
+      .projet {
+        justify-content: flex-start;
+        width: 100%;
+        height: 100vh;
+        .pjt {
+          width: 90%;
+          height: 30vh;
+        }
+      }
+    }
     
     // Projets
     .all-projets {
-      margin-top: 10vh;
       padding-bottom: 10vh;
       position: relative;
       width: 100%;
@@ -381,7 +464,7 @@ footer {
   position: relative;
   padding-top: 100px;
   width: 100%;
-  height: 70vh;
+  height: 73vh;
   background:linear-gradient(rgb(26, 29, 26), black);
   .titre-reseaux {
     margin: auto;
@@ -422,13 +505,15 @@ footer {
             font-size: 30px;
             border-radius: 50%;
             transition: all 0.4s;
-            &:hover {
-              color: $colorText2;
-              background: lighten($color: $colorHover, $amount: 25);
-            }
           }
           p {
-            color: $colorText1;
+            color: $colorHover;
+            transition: all 0.4s;
+          }
+          &:hover {
+            i, p {
+              color: $colorText1;     
+            }
           }
         }
       }
