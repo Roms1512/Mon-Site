@@ -136,7 +136,7 @@ header .container img:nth-of-type(3) {
 header .nav-barre {
   z-index: 100;
   padding: 30px auto;
-  padding-right: 190px;
+  padding-right: 30px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -188,7 +188,7 @@ header .nav-barre .menu-nav .barre-menu:nth-of-type(3) {
     padding-right: 80px;
   }
   header .nav-barre ul li {
-    font-size: medium;
+    font-size: larger;
   }
 }
 @media screen and (max-width: 768px) {
@@ -318,7 +318,7 @@ article .description p span {
 .actu .contenu-projet .titres .titre-projet {
   position: relative;
   width: 100%;
-  top: -50vh;
+  top: -45vh;
   text-align: center;
 }
 .actu .contenu-projet .titres .titre-all-projet {
@@ -334,7 +334,7 @@ article .description p span {
   margin: auto;
 }
 .actu .contenu-projet .titres .barre1 {
-  margin-top: -45vh;
+  margin-top: -40vh;
 }
 .actu .contenu-projet .titres .barre2 {
   margin-top: 5vh;
@@ -374,17 +374,6 @@ article .description p span {
 .actu .contenu-projet .projet .pjt:hover .icones-plus {
   display: block;
 }
-@media screen and (max-width: 768px) {
-  .actu .contenu-projet .projet {
-    justify-content: flex-start;
-    width: 100%;
-    height: 100vh;
-  }
-  .actu .contenu-projet .projet .pjt {
-    width: 90%;
-    height: 30vh;
-  }
-}
 .actu .contenu-projet .all-projets {
   padding-bottom: 10vh;
   position: relative;
@@ -399,6 +388,7 @@ article .description p span {
 .actu .contenu-projet .all-projets .colonne .all-pjt1 {
   width: 100%;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .actu .contenu-projet .all-projets .colonne .all-pjt1:nth-of-type(1) {
   background: rgba(255, 255, 255, 0.5);
@@ -415,6 +405,7 @@ article .description p span {
 .actu .contenu-projet .all-projets .colonne .all-pjt2 {
   width: 100%;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(1) {
   background: rgba(255, 255, 255, 0.5);
@@ -431,6 +422,17 @@ article .description p span {
 .actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(4) {
   background: rgba(255, 255, 255, 0.5);
   height: 45vh;
+}
+@media screen and (max-width: 768px) {
+  .actu .contenu-projet .projet {
+    justify-content: flex-start;
+    width: 100%;
+    height: 100vh;
+  }
+  .actu .contenu-projet .projet .pjt {
+    width: 90%;
+    height: 30vh;
+  }
 }
 .actu .photo-de-moi {
   position: relative;
@@ -525,6 +527,12 @@ header.header-contact {
   width: 100%;
   background: #1a1d1a;
 }
+header.header-contact img {
+  position: fixed;
+  height: 120vh;
+  top: 0;
+  left: 0;
+}
 
 /***** Section Page Contact *****/
 section.section-contact {
@@ -533,7 +541,7 @@ section.section-contact {
   width: 100%;
   height: 100vh;
   color: #f1f1f1;
-  background: #1a1d1a;
+  background: linear-gradient(to bottom, transparent, transparent, #1a1d1a);
 }
 section.section-contact h1 {
   width: 100%;
@@ -550,7 +558,9 @@ section.section-contact .contact {
   width: 100%;
   display: flex;
 }
-section.section-contact .contact .part1, section.section-contact .contact .part2 {
+section.section-contact .contact .part1,
+section.section-contact .contact .part2 {
+  z-index: 100;
   margin: auto;
   padding: 50px;
   width: 45%;

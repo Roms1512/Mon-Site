@@ -5,6 +5,7 @@ $colorText2: #121212;
 $colorBg1: #000;
 $colorBg2: url(../images/BG.jpg);
 $colorHover: #82594e;
+$colorDegrader: rgb(26, 29, 26);
 
 $fontPrincipal: sans-serif;
 
@@ -150,7 +151,7 @@ header {
   .nav-barre {
     z-index: 100;
     padding: 30px auto;
-    padding-right: 190px;
+    padding-right: 30px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -200,7 +201,7 @@ header {
       padding-right: 80px;
       ul {
         li {
-          font-size: medium;
+          font-size: larger;
         }
       }
     }
@@ -335,7 +336,7 @@ article {
       .titre-projet {
         position: relative;
         width: 100%;
-        top: -50vh;
+        top: -45vh;
         text-align: center;
       }
 
@@ -353,7 +354,7 @@ article {
         margin: auto;
       }
       .barre1 {
-        margin-top: -45vh;
+        margin-top: -40vh;
       }
 
       .barre2 {
@@ -397,17 +398,6 @@ article {
         }
       }
     }
-    @media screen and(max-width:768px) {
-      .projet {
-        justify-content: flex-start;
-        width: 100%;
-        height: 100vh;
-        .pjt {
-          width: 90%;
-          height: 30vh;
-        }
-      }
-    }
 
     // Projets
     .all-projets {
@@ -422,6 +412,7 @@ article {
         .all-pjt1 {
           width: 100%;
           margin-bottom: 20px;
+          cursor: pointer;
           &:nth-of-type(1) {
             background: rgba(255, 255, 255, 0.5);
             height: 75vh;
@@ -438,6 +429,7 @@ article {
         .all-pjt2 {
           width: 100%;
           margin-bottom: 20px;
+          cursor: pointer;
           &:nth-of-type(1) {
             background: rgba(255, 255, 255, 0.5);
             height: 30vh;
@@ -457,6 +449,18 @@ article {
         }
       }
     }
+
+    @media screen and(max-width:768px) {
+      .projet {
+        justify-content: flex-start;
+        width: 100%;
+        height: 100vh;
+        .pjt {
+          width: 90%;
+          height: 30vh;
+        }
+      }
+    }
   }
   .photo-de-moi {
     position: relative;
@@ -471,8 +475,8 @@ article {
     background: linear-gradient(
       to bottom,
       transparent,
-      rgb(26, 29, 26),
-      rgb(26, 29, 26)
+      $colorDegrader,
+      $colorDegrader
     );
     .photo {
       width: 70%;
@@ -490,7 +494,7 @@ footer {
   padding-top: 100px;
   width: 100%;
   height: 73vh;
-  background: linear-gradient(rgb(26, 29, 26), black);
+  background: linear-gradient($colorDegrader, black);
   .titre-reseaux {
     margin: auto;
     width: 230px;
@@ -562,7 +566,13 @@ header.header-contact {
   position: relative;
   height: 10vh;
   width: 100%;
-  background: rgb(26,29,26);
+  background: rgb(26, 29, 26);
+  img {
+    position: fixed;
+    height: 120vh;
+    top: 0;
+    left: 0;
+  }
 }
 
 /***** Section Page Contact *****/
@@ -573,7 +583,12 @@ section.section-contact {
   width: 100%;
   height: 100vh;
   color: $colorText1;
-  background: rgb(26, 29, 26);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    transparent,
+    $colorDegrader
+  );
   h1 {
     width: 100%;
     font-family: sans-serif;
@@ -588,7 +603,9 @@ section.section-contact {
   .contact {
     width: 100%;
     display: flex;
-    .part1, .part2 {
+    .part1,
+    .part2 {
+      z-index: 100;
       margin: auto;
       padding: 50px;
       width: 45%;
