@@ -26,6 +26,18 @@ $fontPrincipal: sans-serif;
   }
 }
 
+@keyframes button {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+  }
+  50% {
+    transform: scale(0.94) rotateZ(1deg);
+  }
+  100% {
+    transform: scale(1) rotateZ(0deg);
+  }
+}
+
 /*-------------------- Corps de la Page  |  Les balises Géneriques --------------------*/
 
 /***** loader *****/
@@ -84,6 +96,8 @@ $fontPrincipal: sans-serif;
   transition: display 0.4s ease-out;
 }
 
+/***** Scroll To Top *****/
+
 .scrollToTop {
   opacity: 0;
   z-index: 11;
@@ -93,7 +107,7 @@ $fontPrincipal: sans-serif;
   width: 30px;
   height: 2px;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.8s;
   span.fa-chevron-up {
     color: black;
     padding: 10px;
@@ -468,7 +482,7 @@ article {
   .photo-de-moi {
     position: relative;
     width: 100%;
-    height: 110vh;
+    height: 120vh;
     font-size: 30px;
     font-family: "Great Vibes", cursive;
     display: flex;
@@ -487,6 +501,18 @@ article {
       position: relative;
       margin-bottom: 5vh;
     }
+    a {
+      margin-top: 30px;
+      border-radius: 10px;
+      background: darken($color: $colorText1, $amount: 30);
+      padding: 10px 30px;
+      color: black;
+      text-decoration: none;
+      font-family: 'Times New Roman', Times, serif;
+      &:hover {
+        animation: button 1.8s 0s infinite linear;
+      }
+    }
   }
 }
 
@@ -500,7 +526,7 @@ footer {
   background: linear-gradient($colorDegrader, black);
   .titre-reseaux {
     margin: auto;
-    width: 230px;
+    width: 280px;
     h2 {
       margin-bottom: 30px;
       width: 190%;
@@ -586,12 +612,7 @@ section.section-contact {
   width: 100%;
   height: 100vh;
   color: $colorText1;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    transparent,
-    $colorDegrader
-  );
+  background: $colorDegrader;
   h1 {
     width: 100%;
     font-family: sans-serif;
@@ -638,3 +659,5 @@ section.section-contact {
     }
   }
 }
+
+/*-------------------- Corps de la Page  |  À Propos --------------------*/

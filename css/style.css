@@ -15,6 +15,17 @@
     text-shadow: 0 0 7px #fff900;
   }
 }
+@keyframes button {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+  }
+  50% {
+    transform: scale(0.94) rotateZ(1deg);
+  }
+  100% {
+    transform: scale(1) rotateZ(0deg);
+  }
+}
 /*-------------------- Corps de la Page  |  Les balises Géneriques --------------------*/
 /***** loader *****/
 .loader {
@@ -71,6 +82,7 @@
   transition: display 0.4s ease-out;
 }
 
+/***** Scroll To Top *****/
 .scrollToTop {
   opacity: 0;
   z-index: 11;
@@ -80,7 +92,7 @@
   width: 30px;
   height: 2px;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.8s;
 }
 .scrollToTop span.fa-chevron-up {
   color: black;
@@ -440,7 +452,7 @@ article .description p span {
 .actu .photo-de-moi {
   position: relative;
   width: 100%;
-  height: 110vh;
+  height: 120vh;
   font-size: 30px;
   font-family: "Great Vibes", cursive;
   display: flex;
@@ -455,6 +467,18 @@ article .description p span {
   position: relative;
   margin-bottom: 5vh;
 }
+.actu .photo-de-moi a {
+  margin-top: 30px;
+  border-radius: 10px;
+  background: #a5a5a5;
+  padding: 10px 30px;
+  color: black;
+  text-decoration: none;
+  font-family: "Times New Roman", Times, serif;
+}
+.actu .photo-de-moi a:hover {
+  animation: button 1.8s 0s infinite linear;
+}
 
 /***** Footer *****/
 footer {
@@ -466,7 +490,7 @@ footer {
 }
 footer .titre-reseaux {
   margin: auto;
-  width: 230px;
+  width: 280px;
 }
 footer .titre-reseaux h2 {
   margin-bottom: 30px;
@@ -544,7 +568,7 @@ section.section-contact {
   width: 100%;
   height: 100vh;
   color: #f1f1f1;
-  background: linear-gradient(to bottom, transparent, transparent, #1a1d1a);
+  background: #1a1d1a;
 }
 section.section-contact h1 {
   width: 100%;
@@ -589,5 +613,7 @@ section.section-contact .contact .part1 .adresse-mail h3 {
 section.section-contact .contact .part1 .adresse-mail p {
   padding-left: 20px;
 }
+
+/*-------------------- Corps de la Page  |  À Propos --------------------*/
 
 /*# sourceMappingURL=style.css.map */
