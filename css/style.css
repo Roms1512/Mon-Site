@@ -162,6 +162,7 @@ header .nav-barre {
 }
 header .nav-barre ul {
   display: flex;
+  position: relative;
 }
 header .nav-barre ul li {
   margin: 0 30px;
@@ -185,6 +186,7 @@ header .nav-barre .menu-nav {
   height: 20px;
 }
 header .nav-barre .menu-nav .barre-menu {
+  transition: all 0.3s;
   position: absolute;
   width: 30px;
   height: 2px;
@@ -216,6 +218,23 @@ header .nav-barre .menu-nav .barre-menu:nth-of-type(3) {
   }
   header .nav-barre .menu-nav {
     display: block;
+  }
+  header .nav-barre .menu-nav:hover .barre-menu {
+    background: #a5a5a5;
+  }
+  header .nav-barre .menu-nav:active .barre-menu:nth-of-type(1) {
+    top: 10px;
+    transform: rotate(-45deg);
+    transition: top 0.2s ease, transform 0.2s ease 0.2s;
+  }
+  header .nav-barre .menu-nav:active .barre-menu:nth-of-type(2) {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  header .nav-barre .menu-nav:active .barre-menu:nth-of-type(3) {
+    top: 10px;
+    transform: rotate(45deg);
+    transition: top 0.2s ease, transform 0.2s ease 0.2s;
   }
 }
 
@@ -486,7 +505,7 @@ footer {
   position: relative;
   padding-top: 100px;
   width: 100%;
-  height: 73vh;
+  height: 80vh;
   background: linear-gradient(#1a1d1a, black);
 }
 footer .titre-reseaux {
@@ -542,13 +561,13 @@ footer nav .reseaux li a:hover p {
 footer .copyright {
   margin-top: 14vh;
   text-align: center;
-  z-index: 20;
+  z-index: 10;
   position: relative;
   color: #a5a5a5;
 }
 
 /*-------------------- Corps de la Page  |  Contact --------------------*/
-/***** Header Page Contact *****/
+/***** Section Page Contact *****/
 header.header-contact {
   position: relative;
   height: 10vh;
@@ -567,7 +586,7 @@ section.section-contact {
   z-index: 100;
   position: relative;
   width: 100%;
-  height: 110vh;
+  height: 120vh;
   color: #f1f1f1;
   background: #1a1d1a;
 }
@@ -595,7 +614,7 @@ section.section-contact .contact .part2 {
   padding: 50px;
   margin: 20px;
   width: 36vw;
-  height: 75vh;
+  height: 90vh;
   border: 6px solid #a5a5a5;
 }
 section.section-contact .contact .part1 h2,
@@ -635,7 +654,8 @@ section.section-contact .contact .part2 form .formulaire div {
 section.section-contact .contact .part2 form .formulaire div label {
   margin-bottom: 10px;
 }
-section.section-contact .contact .part2 form .formulaire div input, section.section-contact .contact .part2 form .formulaire div textarea {
+section.section-contact .contact .part2 form .formulaire div input,
+section.section-contact .contact .part2 form .formulaire div textarea {
   background: #a5a5a5;
   border: none;
   height: 100%;
@@ -654,16 +674,36 @@ section.section-contact .contact .part2 form button {
     width: 100%;
     align-items: center;
   }
-  section.section-contact .contact .part1, section.section-contact .contact .part2 {
+  section.section-contact .contact .part1,
+section.section-contact .contact .part2 {
     width: 90%;
   }
 }
 @media screen and (max-width: 1024px) {
   section.section-contact {
-    height: 190vh;
+    height: 220vh;
   }
 }
 
+/***** Footer Page Contact *****/
 /*-------------------- Corps de la Page  |  À Propos --------------------*/
+/***** Section Page Info *****/
+section.section-info {
+  height: 100%;
+  background: #1a1d1a;
+  color: #a5a5a5;
+}
+section.section-info h1 {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  padding-bottom: 0;
+}
+section.section-info h2 {
+  font-size: x-large;
+  text-align: center;
+  margin-bottom: 50px;
+  padding-top: 5px;
+}
 
 /*# sourceMappingURL=style.css.map */

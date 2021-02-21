@@ -163,20 +163,10 @@ header {
         position: absolute;
         width: 100%;
         height: 100vh;
-        // &:nth-of-type(3) {
-        //   width: 100%;
-        //   top: 365px;
-        // }
-        // &:nth-of-type(4) {
-        //   width: 100%;
-        //   height: 20%;
-        //   top: 600px;
-        //   object-position: top;
-        // }
       }
     }
   }
-  
+
   .nav-barre {
     z-index: 100;
     padding: 30px auto;
@@ -189,6 +179,7 @@ header {
     position: relative;
     ul {
       display: flex;
+      position: relative;
       li {
         margin: 0 30px;
         list-style-type: none;
@@ -211,6 +202,7 @@ header {
       width: 30px;
       height: 20px;
       .barre-menu {
+        transition: all 0.3s;
         position: absolute;
         width: 30px;
         height: 2px;
@@ -241,6 +233,29 @@ header {
       }
       .menu-nav {
         display: block;
+        &:hover {
+          .barre-menu {
+            background: darken($color: $colorText1, $amount: 30);
+          }
+        }
+        &:active {
+          .barre-menu {
+            &:nth-of-type(1) {
+              top: 10px;
+              transform: rotate(-45deg);
+              transition: top 0.2s ease, transform 0.2s ease 0.2s;
+            }
+            &:nth-of-type(2) {
+              opacity: 0;
+              transition: opacity 0.2s ease;
+            }
+            &:nth-of-type(3) {
+              top: 10px;
+              transform: rotate(45deg);
+              transition: top 0.2s ease, transform 0.2s ease 0.2s;
+            }
+          }
+        }
       }
     }
   }
@@ -520,7 +535,7 @@ article {
       padding: 10px 30px;
       color: black;
       text-decoration: none;
-      font-family: 'Times New Roman', Times, serif;
+      font-family: "Times New Roman", Times, serif;
       &:hover {
         animation: button 1.8s 0s infinite linear;
       }
@@ -534,7 +549,7 @@ footer {
   position: relative;
   padding-top: 100px;
   width: 100%;
-  height: 73vh;
+  height: 80vh;
   background: linear-gradient($colorDegrader, black);
   .titre-reseaux {
     margin: auto;
@@ -593,7 +608,7 @@ footer {
   .copyright {
     margin-top: 14vh;
     text-align: center;
-    z-index: 20;
+    z-index: 10;
     position: relative;
     color: darken($color: $colorText1, $amount: 30);
   }
@@ -601,7 +616,7 @@ footer {
 
 /*-------------------- Corps de la Page  |  Contact --------------------*/
 
-/***** Header Page Contact *****/
+/***** Section Page Contact *****/
 
 header.header-contact {
   position: relative;
@@ -622,7 +637,7 @@ section.section-contact {
   z-index: 100;
   position: relative;
   width: 100%;
-  height: 110vh;
+  height: 120vh;
   color: $colorText1;
   background: $colorDegrader;
   h1 {
@@ -651,7 +666,7 @@ section.section-contact {
       padding: 50px;
       margin: 20px;
       width: 36vw;
-      height: 75vh;
+      height: 90vh;
       border: 6px solid darken($color: $colorText1, $amount: 30);
       h2 {
         padding-top: 0;
@@ -692,7 +707,8 @@ section.section-contact {
             label {
               margin-bottom: 10px;
             }
-            input, textarea {
+            input,
+            textarea {
               background: darken($color: $colorText1, $amount: 30);
               border: none;
               height: 100%;
@@ -711,17 +727,39 @@ section.section-contact {
       }
     }
     @media screen and(max-width:1024px) {
-      // flex-direction: column;
       width: 100%;
       align-items: center;
-      .part1, .part2 {
+      .part1,
+      .part2 {
         width: 90%;
       }
     }
   }
   @media screen and(max-width:1024px) {
-    height: 190vh;
+    height: 220vh;
   }
 }
 
+/***** Footer Page Contact *****/
+
 /*-------------------- Corps de la Page  |  À Propos --------------------*/
+
+/***** Section Page Info *****/
+
+section.section-info {
+  height: 100%;
+  background: $colorDegrader;
+  color: darken($color: $colorText1, $amount: 30);
+  h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding-bottom: 0;
+  }
+  h2 {
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-top: 5px;
+  }
+}
