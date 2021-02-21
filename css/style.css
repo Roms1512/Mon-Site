@@ -139,7 +139,11 @@ header .container {
   height: 120vh;
   background: linear-gradient(#314831, black);
 }
-header .container img {
+header .container div {
+  position: relative;
+  z-index: 10;
+}
+header .container div img {
   z-index: 10;
   position: absolute;
   width: 100%;
