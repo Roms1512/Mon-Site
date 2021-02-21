@@ -142,11 +142,8 @@ header .container {
 header .container img {
   z-index: 10;
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
-}
-header .container img:nth-of-type(3) {
-  top: 25px;
 }
 header .nav-barre {
   z-index: 100;
@@ -333,7 +330,7 @@ article .description p span {
 .actu .contenu-projet .titres .titre-projet {
   position: relative;
   width: 100%;
-  top: -45vh;
+  top: -40vh;
   text-align: center;
 }
 .actu .contenu-projet .titres .titre-all-projet {
@@ -349,7 +346,7 @@ article .description p span {
   margin: auto;
 }
 .actu .contenu-projet .titres .barre1 {
-  margin-top: -40vh;
+  margin-top: -35vh;
 }
 .actu .contenu-projet .titres .barre2 {
   margin-top: 5vh;
@@ -566,7 +563,7 @@ section.section-contact {
   z-index: 100;
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 110vh;
   color: #f1f1f1;
   background: #1a1d1a;
 }
@@ -576,7 +573,7 @@ section.section-contact h1 {
   font-size: xxx-large;
   letter-spacing: 10px;
   height: 20px;
-  padding-left: 30px;
+  margin-left: 15vw;
   padding-top: 25vh;
   margin-bottom: 120px;
   color: #a5a5a5;
@@ -584,20 +581,21 @@ section.section-contact h1 {
 section.section-contact .contact {
   width: 100%;
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 section.section-contact .contact .part1,
 section.section-contact .contact .part2 {
+  font-family: Arial, Helvetica, sans-serif;
   z-index: 100;
-  margin: auto;
   padding: 50px;
-  width: 45%;
-  height: 70vh;
+  margin: 20px;
+  width: 36vw;
+  height: 75vh;
   border: 6px solid #a5a5a5;
 }
-section.section-contact .contact .part1 {
-  font-family: Arial, Helvetica, sans-serif;
-}
-section.section-contact .contact .part1 h2 {
+section.section-contact .contact .part1 h2,
+section.section-contact .contact .part2 h2 {
   padding-top: 0;
   width: 100%;
   height: 70px;
@@ -612,6 +610,54 @@ section.section-contact .contact .part1 .adresse-mail h3 {
 }
 section.section-contact .contact .part1 .adresse-mail p {
   padding-left: 20px;
+  font-size: 20px;
+  color: #82594e;
+  cursor: pointer;
+}
+section.section-contact .contact .part2 form {
+  width: 100%;
+  height: 100%;
+}
+section.section-contact .contact .part2 form .formulaire {
+  width: 100%;
+  height: 100%;
+  margin-top: 30px;
+}
+section.section-contact .contact .part2 form .formulaire div {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+section.section-contact .contact .part2 form .formulaire div label {
+  margin-bottom: 10px;
+}
+section.section-contact .contact .part2 form .formulaire div input, section.section-contact .contact .part2 form .formulaire div textarea {
+  background: #a5a5a5;
+  border: none;
+  height: 100%;
+  padding: 10px;
+}
+section.section-contact .contact .part2 form button {
+  width: 100%;
+  padding: 12px 25px;
+  background: #82594e;
+  border: none;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+@media screen and (max-width: 1024px) {
+  section.section-contact .contact {
+    width: 100%;
+    align-items: center;
+  }
+  section.section-contact .contact .part1, section.section-contact .contact .part2 {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  section.section-contact {
+    height: 190vh;
+  }
 }
 
 /*-------------------- Corps de la Page  |  À Propos --------------------*/
