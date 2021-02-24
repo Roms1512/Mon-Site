@@ -186,7 +186,7 @@ header .nav-barre .menu-nav {
   height: 20px;
 }
 header .nav-barre .menu-nav .barre-menu {
-  transition: all 0.3s;
+  transition: 0.3s, transform 0.2s ease, opacity 0.2s ease, top 0.2s ease 0.2s;
   position: absolute;
   width: 30px;
   height: 2px;
@@ -387,20 +387,43 @@ article .description p span {
   justify-content: space-between;
 }
 .actu .contenu-projet .projet .pjt {
+  z-index: 10;
   position: relative;
-  background: rgba(255, 255, 255, 0.571);
   width: 30%;
   height: 15vw;
   transition: all 0.5s;
   margin-bottom: 5%;
+  background: rgba(99, 99, 99, 0.571);
+  overflow: hidden;
 }
 .actu .contenu-projet .projet .pjt .icones-plus {
+  z-index: 10;
   display: none;
   filter: invert(1);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.actu .contenu-projet .projet .pjt .img-pjt {
+  z-index: 8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.actu .contenu-projet .projet .pjt .img-pjt.img-pjt1 {
+  background: url(../images/6.png) no-repeat center/cover;
+}
+.actu .contenu-projet .projet .pjt .img-pjt.img-pjt2 {
+  height: 120%;
+  width: 126%;
+  left: -13%;
+  background: url(../images/1.png) no-repeat center/cover;
+}
+.actu .contenu-projet .projet .pjt .img-pjt.img-pjt3 {
+  background: url(../images/5.jpg) no-repeat center/cover;
 }
 .actu .contenu-projet .projet .pjt:hover {
   cursor: pointer;
@@ -410,7 +433,7 @@ article .description p span {
   display: block;
 }
 .actu .contenu-projet .all-projets {
-  padding-bottom: 10vh;
+  padding-bottom: 5vh;
   position: relative;
   width: 100%;
   display: flex;
@@ -457,6 +480,25 @@ article .description p span {
 .actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(4) {
   background: rgba(255, 255, 255, 0.5);
   height: 45vh;
+}
+.actu .contenu-projet .button {
+  z-index: 10;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10vh;
+}
+.actu .contenu-projet .button a {
+  border-radius: 10px;
+  background: #a5a5a5;
+  padding: 10px 30px;
+  color: black;
+  text-decoration: none;
+  font-family: "Times New Roman", Times, serif;
+}
+.actu .contenu-projet .button a:hover {
+  animation: button 1.8s 0s infinite linear;
 }
 @media screen and (max-width: 768px) {
   .actu .contenu-projet .projet {
