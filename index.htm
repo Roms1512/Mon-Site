@@ -81,16 +81,26 @@
         <ul>
           <li data-aos="fade-left" data-aos-delay="200" data-aos-once="false">
             <a href="#">ACCUEIL</a>
+            <ul class="ss-menu">
+              <li class="s-menue"><a href="#" data-aos="fade-up">À propos</a></li>
+              <li class="s-menue"><a href="#" onclick='window.scrollTo({top: 1000, behavior: "smooth"});' data-aos="fade-up">Mes derniers projets</a></li>
+              <li class="s-menue"><a href="#" onclick='window.scrollTo({top: 1700, behavior: "smooth"});' data-aos="fade-up">Compétence</a></li>
+              <li class="s-menue"><a href="#" onclick='window.scrollTo({top: 3000, behavior: "smooth"});' data-aos="fade-up">Réseaux</a></li>
+            </ul>
           </li>
           <li data-aos="fade-left" data-aos-delay="500" data-aos-once="false">
-            <a href="#" onclick='window.scrollTo({top: 1800, behavior: "smooth"});'>PROJETS</a>
+            <a href="./html/projet.html">PROJETS</a>
           </li>
-          </li>
-          <li data-aos="fade-left" data-aos-delay="800" data-aos-once="false">
-            <a href="./html/contact.html">CONTACT</a>
-          </li>
-          <li data-aos="fade-left" data-aos-delay="1100" data-aos-once="false">
-            <a href="./html/info.html">À PROPOS</a>
+        </li>
+        <li data-aos="fade-left" data-aos-delay="800" data-aos-once="false">
+          <a href="./html/contact.html">CONTACT</a>
+        </li>
+        <li data-aos="fade-left" data-aos-delay="1100" data-aos-once="false">
+          <a href="./html/info.html">À PROPOS</a>
+          <ul class="ss-menu">
+            <li class="s-menue"><a href="./html/info.html" data-aos="fade-up">Me Connaître</a></li>
+            <li class="s-menue"><a href="./html/info.html" data-aos="fade-up">Mon CV</a></li>
+          </ul>
           </li>
         </ul>
 
@@ -129,9 +139,12 @@
         </p>
       </div>
     </article>
-
+    
     <!-- Section  -  Actualités et Projets -->
     <section class="actu">
+      <div class="button">
+        <a href="./html/info.html">En Savoir +</a>
+      </div>
       <div class="contenu-projet">
         <!-- Background Fixed -->
         <div class="img-fixed">
@@ -146,7 +159,7 @@
           data-aos-offset="0"
           data-aos-once="true"
         >
-          <h2 class="titre-projet">MES DERNIER <span>PROJETS</span></h2>
+          <h2 id="projet" class="titre-projet">MES DERNIER <span>PROJETS</span></h2>
           <div class="barre barre1"></div>
         </div>
 
@@ -154,10 +167,8 @@
           <div
             class="pjt"
             data-aos="zoom-out-right"
-            data-aos-duration="2000"
+            data-aos-duration="1000"
             data-aos-easing="linear"
-            data-aos-offset="
-            200"
             data-aos-once="true"
           >
           <a href="https://roms1512.github.io/TP_01/">
@@ -172,10 +183,9 @@
           <div
             class="pjt"
             data-aos="zoom-out-down"
-            data-aos-duration="2000"
+            data-aos-delay="400"
+            data-aos-duration="1000"
             data-aos-easing="linear"
-            data-aos-offset="
-          250"
             data-aos-once="true"
           >
           <a href="https://roms1512.github.io/TP_04/">
@@ -190,10 +200,9 @@
           <div
             class="pjt"
             data-aos="zoom-out-left"
-            data-aos-duration="2000"
+            data-aos-delay="800"
+            data-aos-duration="1000"
             data-aos-easing="linear"
-            data-aos-offset="
-            300"
             data-aos-once="true"
           >
           <a href="https://roms1512.github.io/LavaurRomain_3_24-11-2020/">
@@ -207,71 +216,42 @@
             </div>
           </div>
         </div>
+        <div class="button">
+          <a href="./html/projet.html" class="plus">Voir Plus +</a>
+        </div>
 
-        <!-- Projets -->
-        <div class="titres">
-          <h2 id="projet" class="titre-all-projet">MES <span>PROJETS</span></h2>
+        <div class="titres" data-aos="flip-right"
+        data-aos-duration="1000"
+        data-aos-easing="ease-out"
+        data-aos-offset="0"
+        data-aos-once="true">
+          <h2 class="titre-competence" id="competence">MES <span>COMPÉTENCES</span></h2>
           <div class="barre barre2"></div>
         </div>
 
-        <!-- Organisation de tous les Projets -->
-        <div class="all-projets">
-          <!-- colonne 1 -->
-          <div class="colonne">
-            <div
-              class="all-pjt1"
-              data-aos="flip-left"
-              data-aos-duration="2000"
-              data-aos-once="true"
-            ></div>
-            <div
-              class="all-pjt1"
-              data-aos="flip-right"
-              data-aos-duration="2000"
-              data-aos-once="true"
-            ></div>
-            <div
-              class="all-pjt1"
-              data-aos="flip-left"
-              data-aos-duration="2000"
-              data-aos-once="true"
-            ></div>
-          </div>
+        <div class="competences">
+          <a href="#" data-aos="zoom-in-right" data-aos-duration="1000" data-aos-once="true">
+            <div class="comp">
+              <i class="fas fa-code"></i>
+              <h3><span>Front</span>-End</h3>
+              <p>7 PROJETS</p>
+            </div>
+          </a>
 
-          <!-- colonne 2 -->
-          <div class="colonne">
-            <div
-              class="all-pjt2"
-              data-aos="flip-right"
-              data-aos-duration="2000"
-              data-aos-delay="500"
-              data-aos-once="true"
-            ></div>
-            <div
-              class="all-pjt2"
-              data-aos="flip-left"
-              data-aos-duration="2000"
-              data-aos-delay="500"
-              data-aos-once="true"
-            ></div>
-            <div
-              class="all-pjt2"
-              data-aos="flip-right"
-              data-aos-duration="2000"
-              data-aos-delay="500"
-              data-aos-once="true"
-            ></div>
-            <div
-              class="all-pjt2"
-              data-aos="flip-left"
-              data-aos-duration="2000"
-              data-aos-delay="500"
-              data-aos-once="true"
-            ></div>
-          </div>
-        </div>
-        <div class="button">
-          <a href="./html/projet.html">Voir Plus +</a>
+          <a href="#" data-aos="zoom-out-down" data-aos-delay="400" data-aos-duration="1000" data-aos-once="true">
+            <div class="comp">
+              <i class="fas fa-chart-line"></i>
+              <h3>SEO <span>&</span> Référencement</h3>
+            </div>
+          </a>
+
+          <a href="#" data-aos="zoom-in-left" data-aos-delay="800" data-aos-duration="1000" data-aos-once="true">
+            <div class="comp">
+                <i class="fas fa-database"></i>
+                <h3><span>Back</span>-End</h3>
+                <p>EN COURS <span>.</span><span>.</span><span>.</span></p>
+            </div>
+          </a>
         </div>
       </div>
 
@@ -287,7 +267,7 @@
     <footer>
       <!-- Suivez Moi -->
       <div class="titre-reseaux">
-        <h2 data-aos="fade-in-up" data-aos-duration="1500" data-aos-once="true">
+        <h2 id="reseaux" data-aos="fade-in-up" data-aos-duration="1500" data-aos-once="true">
           SUIVEZ <span>MOI</span>
         </h2>
         <div
