@@ -90,24 +90,24 @@
 
               <div class="nom">
                 <label for="name">NOM :</label>
-                <input aria-label="nom et prénom" name="firstname" type="name" required minlength="3" maxlength="15" placeholder="Michel Dupont">
+                <input id="name" aria-label="nom et prénom" name="firstname" type="name" required minlength="3" maxlength="15" placeholder="Michel Dupont">
               </div>
               
               <div class="mail">
                 <label for="email">ADRESSE MAIL :</label>
-                <input aria-label="email" name="email" type="email" required placeholder="MichelDupont@hotmail.com">
+                <input id="email" aria-label="email" name="email" type="email" required placeholder="MichelDupont@hotmail.com">
               </div>
               
               <div class="entreprise">
                 <label for="business">ENTREPRISE (optionelle) :</label>
-                <input aria-label="entreprise" name="business" type="text" placeholder="Nom de votre entreprise">
+                <input id="business" aria-label="entreprise" name="business" type="text" placeholder="Nom de votre entreprise">
               </div>
               
               <div class="messages">
                 <label for="message">MESSAGE :</label>
                 <textarea aria-label="votre message" name="message" id="message" cols="30" rows="10" placeholder="Laissez votre Message..." required></textarea>
               </div>
-              <button>ENVOYER</button>
+              <button id="submit">ENVOYER</button>
             </div>
           </form>
         </div>
@@ -198,6 +198,7 @@
       </div>
     </footer>
 
+    <script src="../js/form.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../node_modules/rellax/rellax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js" integrity="sha512-1dalHDkG9EtcOmCnoCjiwQ/HEB5SDNqw8d4G2MKoNwjiwMNeBAkudsBCmSlMnXdsH8Bm0mOd3tl/6nL5y0bMaQ==" crossorigin="anonymous"></script>

@@ -5,7 +5,7 @@ $colorText2: #121212;
 $colorBg1: #000;
 $colorBg2: url(../images/BG.jpg);
 $colorHover: #82594e;
-$colorDegrader: rgb(26, 29, 26);
+$colorDegrader: #153d46;
 
 $fontPrincipal: sans-serif;
 
@@ -183,10 +183,11 @@ header {
   height: 100vh;
   background: $colorBg1;
   .container {
+    z-index: 10;
     position: absolute;
     width: 100%;
-    height: 120vh;
-    // background: linear-gradient(rgb(49, 72, 49), black);
+    height: 100vh;
+    background: linear-gradient(to bottom, $colorBg1,$colorBg1, $colorDegrader);
     div {
       width: 100vw;
       background: #000;
@@ -203,6 +204,7 @@ header {
 
   .nav-barre {
     z-index: 20;
+    position: relative;
     padding: 30px auto;
     padding-right: 60px;
     display: flex;
@@ -210,7 +212,6 @@ header {
     align-items: center;
     width: 100%;
     height: 10vh;
-    position: relative;
     ul {
       display: flex;
       position: relative;
@@ -336,7 +337,7 @@ article {
     z-index: 10;
     content: "";
     position: absolute;
-    background:linear-gradient(to bottom, #000,#000,#000, transparent);
+    background:linear-gradient(to bottom, #000,#000,#000,#000, transparent);
     bottom: -9vh;
     height: 250px;
     width: 100%;
@@ -562,9 +563,9 @@ section.actu {
         height: 100%;
         color: darken($color: $colorText1, $amount: 30);
         text-decoration: none;
-        background: rgba(0, 0, 0, 0.690);
+        background: rgba(0, 0, 0, 0.890);
         border-radius: 30%;
-        box-shadow: 10px 10px 20px 15px rgba(0, 0, 0, 0.640);
+        box-shadow: 10px 10px 20px 15px rgba(0, 0, 0, 0.740);
         .comp {
           text-align: center;
           width: 100%;
@@ -721,7 +722,7 @@ footer {
   position: relative;
   padding-top: 100px;
   width: 100%;
-  height: 80vh;
+  height: 100vh;
   background: linear-gradient($colorDegrader, black);
   .titre-reseaux {
     margin: auto;
@@ -740,7 +741,8 @@ footer {
   }
 
   nav {
-    margin-top: 20vh;
+    margin-top: 30vh;
+    margin-bottom: 25vh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -780,7 +782,7 @@ footer {
   }
 
   .copyright {
-    margin-top: 14vh;
+    margin-top: 15vh;
     text-align: center;
     z-index: 10;
     position: relative;
@@ -793,6 +795,7 @@ footer {
 /***** Section Page Contact *****/
 
 header.header-contact {
+  z-index: 11;
   position: relative;
   height: 10vh;
   width: 100%;
@@ -808,7 +811,7 @@ header.header-contact {
 /***** Section Page Contact *****/
 
 section.section-contact {
-  z-index: 100;
+  z-index: 10;
   position: relative;
   width: 100%;
   height: 120vh;
