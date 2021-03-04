@@ -50,11 +50,24 @@ $fontPrincipal: sans-serif;
 
 /*-------------------- Corps de la Page  |  Les balises Géneriques --------------------*/
 
+/***** Le body *****/
+
+*, ::after, ::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 /***** loader *****/
 
 .loader {
   z-index: 100;
-  position: absolute;
+  opacity: 1;
+  position: fixed;
   width: 100%;
   height: 100vh;
   background: #000;
@@ -102,8 +115,9 @@ $fontPrincipal: sans-serif;
 }
 
 .fondu-out {
-  display: none;
-  transition: display 0.4s ease-out;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-out;
 }
 
 /***** Scroll To Top *****/
@@ -126,19 +140,8 @@ $fontPrincipal: sans-serif;
   }
 }
 
-/***** Le body *****/
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  overflow-x: hidden;
-}
-
 /***** Toute les balises Types *****/
+
 h2 {
   padding-top: 30px;
   font-size: xxx-large;
@@ -150,6 +153,25 @@ img {
 
 span {
   color: $colorHover;
+}
+
+.button {
+  z-index: 10;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10vh;
+  a {
+    border-radius: 10px;
+    background: darken($color: $colorText1, $amount: 30);
+    padding: 10px 30px;
+    color: black;
+    text-decoration: none;
+    font-family: "Times New Roman", Times, serif;
+    &:hover {
+      animation: button 1.8s 0s infinite linear;
+    }
+  }
 }
 
 /*-------------------- Corps de la Page  |  Acceuil --------------------*/
@@ -164,8 +186,10 @@ header {
     position: absolute;
     width: 100%;
     height: 120vh;
-    background: linear-gradient(rgb(49, 72, 49), black);
+    // background: linear-gradient(rgb(49, 72, 49), black);
     div {
+      width: 100vw;
+      background: #000;
       position: relative;
       z-index: 10;
       img {
@@ -178,9 +202,9 @@ header {
   }
 
   .nav-barre {
-    z-index: 100;
+    z-index: 20;
     padding: 30px auto;
-    padding-right: 30px;
+    padding-right: 60px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -301,60 +325,66 @@ article {
   z-index: 10;
   position: relative;
   top: -5vh;
-  background: $colorBg1;
-  height: 70vh;
+  background:linear-gradient(to bottom, $colorDegrader, $colorBg1, $colorBg1);
+  height: 115vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-bottom: -20vh;
   &::before {
     z-index: 10;
     content: "";
     position: absolute;
-    background: #000;
+    background:linear-gradient(to bottom, #000,#000,#000, transparent);
     bottom: -9vh;
     height: 250px;
     width: 100%;
     transform: scale(1.5);
     border-radius: 50%;
   }
-  .titre {
+  .info {
+    display: flex;
+    justify-content: center;
     position: relative;
-    top: -6vh;
-    width: 45%;
-    height: 200px;
-    text-align: center;
-    font-family: $fontPrincipal;
-    color: darken($color: $colorText1, $amount: 50);
-    border-right: 1px dashed white;
-    h1 {
-      font-size: 50px;
-      letter-spacing: 20px;
-      margin-bottom: 30px;
-      span {
-        color: $colorHover;
+    .titre {
+      position: relative;
+      top: -20vh;
+      width: 50%;
+      height: 200px;
+      text-align: center;
+      font-family: $fontPrincipal;
+      color: darken($color: $colorText1, $amount: 50);
+      border-bottom: 1px dashed white;
+      h1 {
+        font-size: 50px;
+        letter-spacing: 20px;
+        margin-bottom: 30px;
+        span {
+          color: $colorHover;
+        }
+      }
+      h3 {
+        font-size: 15px;
+        letter-spacing: 20px;
+        line-height: 30px;
+        color: $colorText1;
       }
     }
-    h3 {
-      font-size: 15px;
-      letter-spacing: 20px;
-      line-height: 30px;
-      color: $colorText1;
-    }
-  }
-  .description {
-    z-index: 10;
-    position: relative;
-    top: -5vh;
-    width: 45%;
-    p {
-      width: 80%;
-      margin-left: 40px;
-      letter-spacing: 5px;
-      line-height: 30px;
-      color: darken($color: $colorText1, $amount: 30);
-      span {
-        color: $colorText1;
+    .description {
+      z-index: 10;
+      position: relative;
+      top: -19vh;
+      width: 45%;
+      p {
+        width: 80%;
+        margin-left: 40px;
+        letter-spacing: 5px;
+        line-height: 30px;
+        color: darken($color: $colorText1, $amount: 30);
+        span {
+          color: $colorText1;
+        }
       }
     }
   }
@@ -384,10 +414,11 @@ article {
 
 /***** Section  -  Actualités et Projets *****/
 
-.actu {
+section.actu {
   color: darken($color: $colorText1, $amount: 30);
   position: relative;
   background: $colorBg1;
+  height: 100%;
   .contenu-projet {
     position: relative;
     display: flex;
@@ -414,12 +445,11 @@ article {
       .titre-projet {
         position: relative;
         width: 100%;
-        top: -40vh;
+        top: -58vh;
         text-align: center;
       }
 
       .titre-competence, .titre-all-projet {
-        margin-top: 150px;
         position: relative;
         text-align: center;
       }
@@ -433,7 +463,7 @@ article {
         margin: auto;
       }
       .barre1 {
-        margin-top: -35vh;
+        margin-top: -53vh;
       }
 
       .barre2 {
@@ -444,11 +474,10 @@ article {
 
     // Actualités  -  Mes 3 Dernier Projets
     .projet {
-      height: 100%;
       z-index: 10;
-      margin: 0 5% 0;
+      margin: 0 auto;
       position: relative;
-      top: -20vh;
+      top: -30vh;
       width: 90%;
       display: flex;
       flex-wrap: wrap;
@@ -456,10 +485,16 @@ article {
       .pjt {
         z-index: 10;
         position: relative;
-        width: 30%;
+        width: 28%;
         height: 15vw;
         background: rgba(99, 99, 99, 0.571);
         overflow: hidden;
+        &:nth-of-type(2){
+          top: -3vh;
+          width: 34%;
+          height: 18vw;
+        }
+
         .icones-plus {
           z-index: 10;
           opacity: 0;
@@ -470,6 +505,7 @@ article {
           transition: opacity 0.5s;
           transform: translate(-50%, -50%);
         }
+
         .img-pjt {
           transition: all 0.7s ease;
           z-index: 8;
@@ -491,6 +527,7 @@ article {
             background: url(../images/5.jpg) no-repeat center / cover;
           }
         }
+
         &:hover {
           cursor: pointer;
           background: none;
@@ -504,7 +541,12 @@ article {
       }
     }
 
-    // Compétence
+    .button {
+      position: relative;
+      top: -25vh;
+    }
+
+    // Compétences
     .competences {
       margin: auto;
       position: relative;
@@ -522,9 +564,7 @@ article {
         text-decoration: none;
         background: rgba(0, 0, 0, 0.690);
         border-radius: 30%;
-        &:hover {
-          box-shadow: 10px 10px 20px 15px rgba(0, 0, 0, 0.640);
-        }
+        box-shadow: 10px 10px 20px 15px rgba(0, 0, 0, 0.640);
         .comp {
           text-align: center;
           width: 100%;
@@ -533,7 +573,7 @@ article {
             transition: all 0.3s ease-out;
             font-size: 60px;
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
           }
           h3 {
             font-size: xx-large;
@@ -562,6 +602,7 @@ article {
           .comp {
             i {
               transform: scale(1.2);
+              color: $colorText1;
             }
           }
         }
@@ -619,41 +660,28 @@ article {
       }
     }
 
-    .button {
-      z-index: 10;
-      font-size: 30px;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 10vh;
-      a {
-        border-radius: 10px;
-        background: darken($color: $colorText1, $amount: 30);
-        padding: 10px 30px;
-        color: black;
-        text-decoration: none;
-        font-family: "Times New Roman", Times, serif;
-        &:hover {
-          animation: button 1.8s 0s infinite linear;
-        }
-      }
-    }
-
     @media screen and(max-width:768px) {
       .projet {
-        justify-content: flex-start;
         width: 100%;
         height: 100vh;
+        margin: auto;
         .pjt {
-          width: 90%;
-          height: 30vh;
+          width: 70%;
+          height: 60vh;
+          &:nth-of-type(2){
+            top: 0;
+            width: 70%;
+            height: 60vh;
+          }
         }
       }
     }
   }
+
   .photo-de-moi {
     position: relative;
     width: 100%;
-    height: 120vh;
+    height: 130vh;
     font-size: 30px;
     font-family: "Great Vibes", cursive;
     display: flex;
@@ -710,6 +738,7 @@ footer {
       margin: auto;
     }
   }
+
   nav {
     margin-top: 20vh;
     width: 100%;
@@ -749,6 +778,7 @@ footer {
       }
     }
   }
+
   .copyright {
     margin-top: 14vh;
     text-align: center;
@@ -798,6 +828,7 @@ section.section-contact {
       // margin-left: 30vw;
     }
   }
+
   .contact {
     width: 100%;
     display: flex;
@@ -879,6 +910,7 @@ section.section-contact {
       }
     }
   }
+
   @media screen and(max-width:1024px) {
     height: 220vh;
   }
@@ -900,6 +932,7 @@ section.section-info {
     font-size: 15px;
     padding-bottom: 0;
   }
+
   h2 {
     font-size: x-large;
     text-align: center;

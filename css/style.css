@@ -37,10 +37,22 @@
   }
 }
 /*-------------------- Corps de la Page  |  Les balises Géneriques --------------------*/
+/***** Le body *****/
+*, ::after, ::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 /***** loader *****/
 .loader {
   z-index: 100;
-  position: absolute;
+  opacity: 1;
+  position: fixed;
   width: 100%;
   height: 100vh;
   background: #000;
@@ -88,8 +100,9 @@
 }
 
 .fondu-out {
-  display: none;
-  transition: display 0.4s ease-out;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease-out;
 }
 
 /***** Scroll To Top *****/
@@ -111,17 +124,6 @@
   background: rgba(255, 255, 255, 0.571);
 }
 
-/***** Le body *****/
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-body {
-  overflow-x: hidden;
-}
-
 /***** Toute les balises Types *****/
 h2 {
   padding-top: 30px;
@@ -136,6 +138,25 @@ span {
   color: #82594e;
 }
 
+.button {
+  z-index: 10;
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10vh;
+}
+.button a {
+  border-radius: 10px;
+  background: #a5a5a5;
+  padding: 10px 30px;
+  color: black;
+  text-decoration: none;
+  font-family: "Times New Roman", Times, serif;
+}
+.button a:hover {
+  animation: button 1.8s 0s infinite linear;
+}
+
 /*-------------------- Corps de la Page  |  Acceuil --------------------*/
 /***** Header *****/
 header {
@@ -147,9 +168,10 @@ header .container {
   position: absolute;
   width: 100%;
   height: 120vh;
-  background: linear-gradient(#314831, black);
 }
 header .container div {
+  width: 100vw;
+  background: #000;
   position: relative;
   z-index: 10;
 }
@@ -160,9 +182,9 @@ header .container div img {
   height: 100vh;
 }
 header .nav-barre {
-  z-index: 100;
+  z-index: 20;
   padding: 30px auto;
-  padding-right: 30px;
+  padding-right: 60px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -274,10 +296,11 @@ article {
   z-index: 10;
   position: relative;
   top: -5vh;
-  background: #000;
-  height: 70vh;
+  background: linear-gradient(to bottom, #1a1d1a, #000, #000);
+  height: 115vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-bottom: -20vh;
 }
@@ -285,51 +308,56 @@ article::before {
   z-index: 10;
   content: "";
   position: absolute;
-  background: #000;
+  background: linear-gradient(to bottom, #000, #000, #000, transparent);
   bottom: -9vh;
   height: 250px;
   width: 100%;
   transform: scale(1.5);
   border-radius: 50%;
 }
-article .titre {
+article .info {
+  display: flex;
+  justify-content: center;
   position: relative;
-  top: -6vh;
-  width: 45%;
+}
+article .info .titre {
+  position: relative;
+  top: -20vh;
+  width: 50%;
   height: 200px;
   text-align: center;
   font-family: sans-serif;
   color: #727272;
-  border-right: 1px dashed white;
+  border-bottom: 1px dashed white;
 }
-article .titre h1 {
+article .info .titre h1 {
   font-size: 50px;
   letter-spacing: 20px;
   margin-bottom: 30px;
 }
-article .titre h1 span {
+article .info .titre h1 span {
   color: #82594e;
 }
-article .titre h3 {
+article .info .titre h3 {
   font-size: 15px;
   letter-spacing: 20px;
   line-height: 30px;
   color: #f1f1f1;
 }
-article .description {
+article .info .description {
   z-index: 10;
   position: relative;
-  top: -5vh;
+  top: -19vh;
   width: 45%;
 }
-article .description p {
+article .info .description p {
   width: 80%;
   margin-left: 40px;
   letter-spacing: 5px;
   line-height: 30px;
   color: #a5a5a5;
 }
-article .description p span {
+article .info .description p span {
   color: #f1f1f1;
 }
 @media screen and (max-width: 1024px) {
@@ -357,12 +385,13 @@ article .description p span {
 }
 
 /***** Section  -  Actualités et Projets *****/
-.actu {
+section.actu {
   color: #a5a5a5;
   position: relative;
   background: #000;
+  height: 100%;
 }
-.actu .contenu-projet {
+section.actu .contenu-projet {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -370,29 +399,28 @@ article .description p span {
   width: 100%;
   height: 100%;
 }
-.actu .contenu-projet .img-fixed .bg-fixed {
+section.actu .contenu-projet .img-fixed .bg-fixed {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
-.actu .contenu-projet .titres {
+section.actu .contenu-projet .titres {
   z-index: 10;
   position: relative;
 }
-.actu .contenu-projet .titres .titre-projet {
+section.actu .contenu-projet .titres .titre-projet {
   position: relative;
   width: 100%;
-  top: -40vh;
+  top: -58vh;
   text-align: center;
 }
-.actu .contenu-projet .titres .titre-competence, .actu .contenu-projet .titres .titre-all-projet {
-  margin-top: 150px;
+section.actu .contenu-projet .titres .titre-competence, section.actu .contenu-projet .titres .titre-all-projet {
   position: relative;
   text-align: center;
 }
-.actu .contenu-projet .titres .barre {
+section.actu .contenu-projet .titres .barre {
   z-index: 10;
   width: 70px;
   background: #f1f1f1;
@@ -400,33 +428,37 @@ article .description p span {
   position: relative;
   margin: auto;
 }
-.actu .contenu-projet .titres .barre1 {
-  margin-top: -35vh;
+section.actu .contenu-projet .titres .barre1 {
+  margin-top: -53vh;
 }
-.actu .contenu-projet .titres .barre2 {
+section.actu .contenu-projet .titres .barre2 {
   margin-top: 5vh;
   margin-bottom: 10vh;
 }
-.actu .contenu-projet .projet {
-  height: 100%;
+section.actu .contenu-projet .projet {
   z-index: 10;
-  margin: 0 5% 0;
+  margin: 0 auto;
   position: relative;
-  top: -20vh;
+  top: -30vh;
   width: 90%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-.actu .contenu-projet .projet .pjt {
+section.actu .contenu-projet .projet .pjt {
   z-index: 10;
   position: relative;
-  width: 30%;
+  width: 28%;
   height: 15vw;
   background: rgba(99, 99, 99, 0.571);
   overflow: hidden;
 }
-.actu .contenu-projet .projet .pjt .icones-plus {
+section.actu .contenu-projet .projet .pjt:nth-of-type(2) {
+  top: -3vh;
+  width: 34%;
+  height: 18vw;
+}
+section.actu .contenu-projet .projet .pjt .icones-plus {
   z-index: 10;
   opacity: 0;
   filter: invert(1);
@@ -436,7 +468,7 @@ article .description p span {
   transition: opacity 0.5s;
   transform: translate(-50%, -50%);
 }
-.actu .contenu-projet .projet .pjt .img-pjt {
+section.actu .contenu-projet .projet .pjt .img-pjt {
   transition: all 0.7s ease;
   z-index: 8;
   position: absolute;
@@ -445,29 +477,33 @@ article .description p span {
   height: 100%;
   width: 100%;
 }
-.actu .contenu-projet .projet .pjt .img-pjt.img-pjt1 {
+section.actu .contenu-projet .projet .pjt .img-pjt.img-pjt1 {
   background: url(../images/6.png) no-repeat center/cover;
 }
-.actu .contenu-projet .projet .pjt .img-pjt.img-pjt2 {
+section.actu .contenu-projet .projet .pjt .img-pjt.img-pjt2 {
   height: 120%;
   width: 126%;
   left: -13%;
   background: url(../images/1.png) no-repeat center/cover;
 }
-.actu .contenu-projet .projet .pjt .img-pjt.img-pjt3 {
+section.actu .contenu-projet .projet .pjt .img-pjt.img-pjt3 {
   background: url(../images/5.jpg) no-repeat center/cover;
 }
-.actu .contenu-projet .projet .pjt:hover {
+section.actu .contenu-projet .projet .pjt:hover {
   cursor: pointer;
   background: none;
 }
-.actu .contenu-projet .projet .pjt:hover .icones-plus {
+section.actu .contenu-projet .projet .pjt:hover .icones-plus {
   opacity: 1;
 }
-.actu .contenu-projet .projet .pjt:hover .img-pjt {
+section.actu .contenu-projet .projet .pjt:hover .img-pjt {
   transform: scale(1.3);
 }
-.actu .contenu-projet .competences {
+section.actu .contenu-projet .button {
+  position: relative;
+  top: -25vh;
+}
+section.actu .contenu-projet .competences {
   margin: auto;
   position: relative;
   width: 80%;
@@ -476,7 +512,7 @@ article .description p span {
   display: flex;
   justify-content: space-between;
 }
-.actu .contenu-projet .competences a {
+section.actu .contenu-projet .competences a {
   margin-left: 10px;
   margin-right: 10px;
   width: 270px;
@@ -485,126 +521,112 @@ article .description p span {
   text-decoration: none;
   background: rgba(0, 0, 0, 0.69);
   border-radius: 30%;
-}
-.actu .contenu-projet .competences a:hover {
   box-shadow: 10px 10px 20px 15px rgba(0, 0, 0, 0.64);
 }
-.actu .contenu-projet .competences a .comp {
+section.actu .contenu-projet .competences a .comp {
   text-align: center;
   width: 100%;
 }
-.actu .contenu-projet .competences a .comp i {
+section.actu .contenu-projet .competences a .comp i {
   margin-top: 20px;
   transition: all 0.3s ease-out;
   font-size: 60px;
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
-.actu .contenu-projet .competences a .comp h3 {
+section.actu .contenu-projet .competences a .comp h3 {
   font-size: xx-large;
   margin-bottom: 10px;
 }
-.actu .contenu-projet .competences a .comp h3 span {
+section.actu .contenu-projet .competences a .comp h3 span {
   transition: all 0.3s ease-out;
 }
-.actu .contenu-projet .competences a .comp p span {
+section.actu .contenu-projet .competences a .comp p span {
   color: #a5a5a5;
   transition: all 0.3s linear;
 }
-.actu .contenu-projet .competences a .comp p span:nth-of-type(1) {
+section.actu .contenu-projet .competences a .comp p span:nth-of-type(1) {
   animation: enCours 1.5s 1s linear infinite;
 }
-.actu .contenu-projet .competences a .comp p span:nth-of-type(2) {
+section.actu .contenu-projet .competences a .comp p span:nth-of-type(2) {
   animation: enCours 1.5s 1.5s linear infinite;
 }
-.actu .contenu-projet .competences a .comp p span:nth-of-type(3) {
+section.actu .contenu-projet .competences a .comp p span:nth-of-type(3) {
   animation: enCours 1.5s 2s linear infinite;
 }
-.actu .contenu-projet .competences a:hover .comp i {
+section.actu .contenu-projet .competences a:hover .comp i {
   transform: scale(1.2);
+  color: #f1f1f1;
 }
-.actu .contenu-projet .all-projets {
+section.actu .contenu-projet .all-projets {
   padding-bottom: 5vh;
   position: relative;
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
-.actu .contenu-projet .all-projets .colonne {
+section.actu .contenu-projet .all-projets .colonne {
   width: 40%;
   height: 100%;
 }
-.actu .contenu-projet .all-projets .colonne .all-pjt1 {
+section.actu .contenu-projet .all-projets .colonne .all-pjt1 {
   width: 100%;
   margin-bottom: 20px;
   cursor: pointer;
 }
-.actu .contenu-projet .all-projets .colonne .all-pjt1:nth-of-type(1) {
+section.actu .contenu-projet .all-projets .colonne .all-pjt1:nth-of-type(1) {
   background: rgba(255, 255, 255, 0.5);
   height: 75vh;
 }
-.actu .contenu-projet .all-projets .colonne .all-pjt1:nth-of-type(2) {
+section.actu .contenu-projet .all-projets .colonne .all-pjt1:nth-of-type(2) {
   background: rgba(255, 255, 255, 0.5);
   height: 50vh;
 }
-.actu .contenu-projet .all-projets .colonne .all-pjt1:nth-of-type(3) {
+section.actu .contenu-projet .all-projets .colonne .all-pjt1:nth-of-type(3) {
   background: rgba(255, 255, 255, 0.5);
   height: 50vh;
 }
-.actu .contenu-projet .all-projets .colonne .all-pjt2 {
+section.actu .contenu-projet .all-projets .colonne .all-pjt2 {
   width: 100%;
   margin-bottom: 20px;
   cursor: pointer;
 }
-.actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(1) {
+section.actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(1) {
   background: rgba(255, 255, 255, 0.5);
   height: 30vh;
 }
-.actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(2) {
+section.actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(2) {
   background: rgba(255, 255, 255, 0.5);
   height: 50vh;
 }
-.actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(3) {
+section.actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(3) {
   background: rgba(255, 255, 255, 0.5);
   height: 70vh;
 }
-.actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(4) {
+section.actu .contenu-projet .all-projets .colonne .all-pjt2:nth-of-type(4) {
   background: rgba(255, 255, 255, 0.5);
   height: 45vh;
 }
-.actu .contenu-projet .button {
-  z-index: 10;
-  font-size: 30px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10vh;
-}
-.actu .contenu-projet .button a {
-  border-radius: 10px;
-  background: #a5a5a5;
-  padding: 10px 30px;
-  color: black;
-  text-decoration: none;
-  font-family: "Times New Roman", Times, serif;
-}
-.actu .contenu-projet .button a:hover {
-  animation: button 1.8s 0s infinite linear;
-}
 @media screen and (max-width: 768px) {
-  .actu .contenu-projet .projet {
-    justify-content: flex-start;
+  section.actu .contenu-projet .projet {
     width: 100%;
     height: 100vh;
+    margin: auto;
   }
-  .actu .contenu-projet .projet .pjt {
-    width: 90%;
-    height: 30vh;
+  section.actu .contenu-projet .projet .pjt {
+    width: 70%;
+    height: 60vh;
+  }
+  section.actu .contenu-projet .projet .pjt:nth-of-type(2) {
+    top: 0;
+    width: 70%;
+    height: 60vh;
   }
 }
-.actu .photo-de-moi {
+section.actu .photo-de-moi {
   position: relative;
   width: 100%;
-  height: 120vh;
+  height: 130vh;
   font-size: 30px;
   font-family: "Great Vibes", cursive;
   display: flex;
@@ -613,13 +635,13 @@ article .description p span {
   align-items: center;
   background: linear-gradient(to bottom, transparent, #1a1d1a, #1a1d1a);
 }
-.actu .photo-de-moi .photo {
+section.actu .photo-de-moi .photo {
   width: 70%;
   height: 100vh;
   position: relative;
   margin-bottom: 5vh;
 }
-.actu .photo-de-moi a {
+section.actu .photo-de-moi a {
   margin-top: 30px;
   border-radius: 10px;
   background: #a5a5a5;
@@ -628,7 +650,7 @@ article .description p span {
   text-decoration: none;
   font-family: "Times New Roman", Times, serif;
 }
-.actu .photo-de-moi a:hover {
+section.actu .photo-de-moi a:hover {
   animation: button 1.8s 0s infinite linear;
 }
 
