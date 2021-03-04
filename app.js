@@ -4,7 +4,7 @@ let navBarre = document.getElementById("navBarre");
 console.log(navBarre);
 
 function fixedNavBarre() {
-  if(document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+  if(document.body.scrollTop > 499 || document.documentElement.scrollTop > 499) {
     navBarre.style.position = "fixed";
     navBarre.style.top = "0";
     navBarre.style.background = "#000";
