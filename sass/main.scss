@@ -58,6 +58,10 @@ $fontPrincipal: sans-serif;
   box-sizing: border-box;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -577,6 +581,7 @@ section.actu {
             margin-bottom: 20px;
           }
           h3 {
+            transition: all 1s;
             font-size: xx-large;
             margin-bottom: 10px;
             span {
@@ -601,6 +606,7 @@ section.actu {
         }
         &:hover {
           .comp {
+            color: $colorText1;
             i {
               transform: scale(1.2);
               color: $colorText1;
@@ -929,17 +935,34 @@ section.section-info {
   height: 100%;
   background: $colorDegrader;
   color: darken($color: $colorText1, $amount: 30);
-  h1 {
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    padding-bottom: 0;
+  text-align: center;
+  .a-propos {
+    padding-top: 30px;
+    width: 100%;
+    h1 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+      padding-bottom: 0;
+    }
+  
   }
-
   h2 {
-    font-size: x-large;
-    text-align: center;
+    font-size: xxx-large;
     margin-bottom: 50px;
     padding-top: 5px;
+  }
+  .cv {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    h2 {
+      margin-top: 100px;
+    }
+    .doc-cv {
+      margin: auto;
+      height: 152vh;
+    }
   }
 }

@@ -44,6 +44,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   overflow-x: hidden;
 }
@@ -537,6 +541,7 @@ section.actu .contenu-projet .competences a .comp i {
   margin-bottom: 20px;
 }
 section.actu .contenu-projet .competences a .comp h3 {
+  transition: all 1s;
   font-size: xx-large;
   margin-bottom: 10px;
 }
@@ -555,6 +560,9 @@ section.actu .contenu-projet .competences a .comp p span:nth-of-type(2) {
 }
 section.actu .contenu-projet .competences a .comp p span:nth-of-type(3) {
   animation: enCours 1.5s 2s linear infinite;
+}
+section.actu .contenu-projet .competences a:hover .comp {
+  color: #f1f1f1;
 }
 section.actu .contenu-projet .competences a:hover .comp i {
   transform: scale(1.2);
@@ -850,18 +858,35 @@ section.section-info {
   height: 100%;
   background: #153d46;
   color: #a5a5a5;
-}
-section.section-info h1 {
   text-align: center;
+}
+section.section-info .a-propos {
+  padding-top: 30px;
+  width: 100%;
+}
+section.section-info .a-propos h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
   padding-bottom: 0;
 }
 section.section-info h2 {
-  font-size: x-large;
-  text-align: center;
+  font-size: xxx-large;
   margin-bottom: 50px;
   padding-top: 5px;
+}
+section.section-info .cv {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+section.section-info .cv h2 {
+  margin-top: 100px;
+}
+section.section-info .cv .doc-cv {
+  margin: auto;
+  height: 152vh;
 }
 
 /*# sourceMappingURL=style.css.map */
